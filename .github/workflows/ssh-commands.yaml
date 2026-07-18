@@ -70,7 +70,7 @@ jobs:
           subject-name: index.docker.io/hnigam33/edward
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-          
+
       - name: Execute remote SSH command using password.     #CD part
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -81,4 +81,6 @@ jobs:
           script: |
             docker stop edward
             docker rm edward
+            docker rmi docker.io/hnigam33/edward:master
             docker run -d -p 9000:9000 --name edward docker.io/hnigam33/edward:master
+ 
