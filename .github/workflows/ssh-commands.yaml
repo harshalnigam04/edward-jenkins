@@ -22,7 +22,7 @@
 #             docker build -t edward .
 #             docker run -d -p 9000:9000 --name edward edward
 
-name: Publish Docker image.   #CI part
+name: Publish Docker image. #CI part
 
 on:
   push:
@@ -70,11 +70,8 @@ jobs:
           subject-name: index.docker.io/hnigam33/edward
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-  build:                                #CD PART
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute remote SSH command using password
+          
+      - name: Execute remote SSH command using password.     #CD part
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.HOST }}
