@@ -27,7 +27,7 @@ name: Publish Docker image. #CI part
 on:
   push:
     branches:
-      - master
+      - fake
 
 jobs:
   push_to_registry:
