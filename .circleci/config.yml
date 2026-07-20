@@ -1,12 +1,11 @@
-orbs:
-  docker: circleci/docker@2.1.1
 version: 2.1
+
 executors:
   docker-publisher:
     environment:
       IMAGE_NAME: docker.io/hnigam33/edward
     docker:
-      - image: circleci/node:latest
+      - image: cimg/base:current
         auth:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
